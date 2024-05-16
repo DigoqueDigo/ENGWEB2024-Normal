@@ -5,7 +5,7 @@ var axios = require('axios')
 
 // GET PAGINA INICIAL
 router.get('/', function(req, res, next){
-    axios.get('http://localhost:16000/contratos')
+    axios.get('http://ex1-Server:16000/contratos')
         .then(response => res.status(201).render('index',{
             'title': 'Lista de Contratos',
             'contratos': response.data,
@@ -16,7 +16,7 @@ router.get('/', function(req, res, next){
 
 // GET PAGINA DO CONTRATO
 router.get('/:id', function(req, res, next){
-    axios.get('http://localhost:16000/contratos/' + req.params.id)
+    axios.get('http://ex1-Server:16000/contratos/' + req.params.id)
         .then(response => res.status(201).render('contrato',{
             'title': 'Lista de Contratos',
             'contrato': response.data,
@@ -28,7 +28,7 @@ router.get('/:id', function(req, res, next){
 
 // GET PAGINA DA ENTIDADE
 router.get('/entidades/:nipc', function(req, res, next){
-    axios.get('http://localhost:16000/contratos?nipc=' + req.params.nipc)
+    axios.get('http://ex1-Server:16000/contratos?nipc=' + req.params.nipc)
         .then(response => {
 
             let sum = 0;

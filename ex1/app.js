@@ -6,8 +6,8 @@ var logger = require('morgan');
 var mongoose = require('mongoose')
 
 
-//mongoose.connect('mongodb://mongo-server:27017/pessoasDB')
-mongoose.connect('mongodb://127.0.0.1/contratos')
+mongoose.connect('mongodb://mongo-server:27017/contratos')
+//mongoose.connect('mongodb://127.0.0.1/contratos')
 var db = mongoose.connection
 
 db.on('error',console.error.bind(console,'Erro de conexão ao MongoDB'))

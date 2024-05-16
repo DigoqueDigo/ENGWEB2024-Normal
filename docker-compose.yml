@@ -1,10 +1,27 @@
 version: '2'
 
 services:
-  mongodb:
-    image: mongo:latest
+  ex2-server:
+    container_name: ex2-Server
+    image: ex2-server
     ports:
-      - "27017:27017"
+      - "16001:16001"
+    depends_on:
+      - ex1-server
+    links:
+      - ex1-server
+  ex1-server:
+    container_name: ex1-Server
+    image: ex1-server
+    ports:
+      - "16000:16000"
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+  mongodb:
+    container_name: mongo-server
+    image: mongo:latest
     depends_on:
       - mongo-seed
   mongo-seed:
